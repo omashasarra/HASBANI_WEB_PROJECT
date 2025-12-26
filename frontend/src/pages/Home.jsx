@@ -20,7 +20,7 @@ const FeatureCard = ({ image, title, description, isArabic }) => (
     <img 
       src={image} 
       alt={title} 
-      className="w-16 h-16 object-contain mb-4"  // Fixed size for all icons/images
+      className="w-16 h-16 object-contain mb-4" 
     />
     <h3 className={`text-lg font-semibold text-gray-800 mb-2 ${isArabic ? "text-right" : ""}`}>
       {title}
@@ -201,52 +201,46 @@ const products = isArabic
     <div className="pt-20 relative w-auto bg-[#d5ded5]" dir={isArabic ? "rtl" : "ltr"}>
 {/* Hero Section */}
 <div className="relative w-auto">
-  <img src={heroImage} alt="Hero" className="w-full h-auto object-cover" />
+  <img
+    src={heroImage}
+    alt="Hero"
+    className="w-full h-auto object-cover"
+  />
+
   <div className="absolute inset-0"></div>
 
-  <div
-    className={`absolute top-8 md:top-8 ${
-      isArabic
-        ? "right-[10px] sm:right-[5px] md:right-8 text-right"
-        : "left-[10px] md:left-8 text-left"
-    } max-w-md md:max-w-xl lg:max-w-2xl px-4`}
-  >
-    <h1
-      className={`font-serif text-white mb-6 md:mb-6 leading-tight ${
-        isArabic ? "text-right -translate-y-4 sm:-translate-x-1": "text-left md:text-center -translate-y-4 sm:-translate-y-2"
-      } text-2xl sm:text-3xl md:text-6xl lg:text-7xl`}
-    >
-      {isArabic ? "نكهات لبنانية راقية" : (
-        <>
-          <span className="block">Exquisite</span>
-          <span className="block">Lebanese</span>
-          <span className="block">Flavors</span>
-        </>
-      )}
-    </h1>
+  <div className="absolute top-8 md:top-8 left-[10px] md:left-8 max-w-md md:max-w-xl lg:max-w-2xl px-4">
 
-    {isArabic ? (
+    {/* Title */}
+    <h1 className="font-serif text-white mb-6 leading-tight
+                   text-2xl sm:text-3xl md:text-6xl lg:text-7xl">
+
+      <span className="block">
+        {isArabic ? "نكهات" : "Exquisite"}
+      </span>
+
+      <span className="block">
+        {isArabic ? "لبنانية" : "Lebanese"}
+      </span>
+
+      <span className="block">
+        {isArabic ? "راقية" : "Flavors"}
+      </span>
+
+    </h1>
 <Link
   to="/products"
-  className="mt-[78px] sm:mt-[40px] mr-[-5px] sm:mr-0 px-[10px] py-[6px] sm:px-[32px] sm:py-[12px] rounded-full font-semibold shadow-md transform transition-all duration-300 inline-block
-  text-white bg-[#414A38] hover:bg-green-900 hover:scale-105 text-[9px] sm:text-base text-right"
+  className="mt-[2px] px-[10px] py-[6px]
+             sm:px-[32px] sm:py-[12px]
+             rounded-full font-semibold shadow-md
+             transform transition-all duration-300 inline-block
+             text-white bg-[#414A38] hover:bg-green-900 hover:scale-105
+             text-[9px] sm:text-base"
 >
-  تذوق الأصالة
+  {isArabic ? "تذوق الأصالة" : "Taste the Heritage"}
 </Link>
-
-    ) : (
-      <Link
-        to="/products"
-        className="mt-[32px] sm:mt-0 ml-[-5px] sm:ml-0 px-[10px] py-[6px] sm:px-[32px] sm:py-[12px] rounded-full font-semibold shadow-md transform transition-all duration-300 inline-block
-        text-white bg-[#414A38] hover:bg-green-900 hover:scale-105 text-[9px] sm:text-base"
-      >
-        Taste the Heritage
-      </Link>
-    )}
   </div>
 </div>
-
-
 
 
 {/* Our Story Section */}

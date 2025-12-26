@@ -126,19 +126,19 @@ taste and trust. `,
           title: { EN: "Honest Performance", AR: " الصدق في الأداء" },
           description: { EN: <><b>40+ years </b>of integrity and exacting standards ensure trusted, 
                       premium products.</>,
-                      AR: "أكثر من 40 عامًا من النزاهة والدقّة في العمل تضمن منتجات موثوقة وراقية " },
+                      AR: ".أكثر من 40 عامًا من النزاهة والدقّة في العمل تضمن منتجات موثوقة وراقية " },
         },
         {
           icon: <LuShieldCheck className="text-[#414A38] w-16 h-16 md:w-20 md:h-20" />,
           title: { EN: "Authenticity", AR: "الأصالة" },
-          description: { EN: " Pride in our legacy is always prioritized over commercial trends.", AR: "نفخر بإرثنا وتقاليدنا الأصيلة التي نضعها دائما فوق أي توجّه تجاري عابر " },
+          description: { EN: " Pride in our legacy is always prioritized over commercial trends.", AR: ".نفخر بإرثنا وتقاليدنا الأصيلة التي نضعها دائما فوق أي توجّه تجاري عابر " },
         },
         {
           icon: <FaHandsHelping className="text-[#414A38] w-28 h-28 md:w-20 md:h-20" />,
           title: { EN: "Empowering Communities", AR: "تمكين المجتمعات" },
           description: { EN: <>HASBANI partners with over <b>1,000+ local farmers</b> under 
 strict quality control, supported by more than <b>50 employees</b> to ensure a reliable supply. </>, AR: `تتعاون حاصباني مع أكثر من الف مزارع محلي ضمن نظام رقابة
-                      صارم على الجودة، وبدعم أكثر من خمسون موظفًا لضمان استمرارية الإنتاج
+                    صارم على الجودة، وبدعم أكثر من خمسون موظفًا لضمان استمرارية الإنتاج.
                       `},
         },
         {
@@ -149,7 +149,7 @@ strict quality control, supported by more than <b>50 employees</b> to ensure a r
           international certifications to uphold best practices and global standards.`,
           AR: (
             <>
-              تعمل <span dir="ltr">HASBANI</span> بالشراكة مع السلطات المحلية، ووفق المعايير والشهادات الدولية، للحفاظ على أفضل الممارسات البيئية والمستدامة عالميًا
+              تعمل <span dir="ltr">HASBANI</span> .بالشراكة مع السلطات المحلية، ووفق المعايير والشهادات الدولية، للحفاظ على أفضل الممارسات البيئية والمستدامة عالميًا
             </>
           )
           }
@@ -316,9 +316,45 @@ jar, and package.`
               </div>
             </div>
           </div>
-          <p className="mt-10 text-center text-gray-600 text-sm md:text-base max-w-3xl">
-            {lang === "EN" ? content.symbols.caption.EN : content.symbols.caption.AR}
-          </p>
+        </div>
+          <div className="relative mt-12 w-full md:w-4/5 flex justify-center">
+{/* Arrow */}
+<div className="absolute -top-10 flex justify-center">
+  <svg
+    width="60"
+    height="40"
+    viewBox="0 0 60 40"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="text-gray-300"
+  >
+    <path
+      d="M30 0 C30 18 30 18 30 28"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+    <path
+      d="M24 22 L30 28 L36 22"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</div>
+
+          {/* Caption Box */}
+          <div
+            className={`bg-white px-8 py-6 rounded-xl shadow-md text-center max-w-3xl ${
+              lang === "EN" ? "text-left" : "text-right"
+            }`}
+            dir={lang === "EN" ? "ltr" : "rtl"}
+          >
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+              {lang === "EN" ? content.symbols.caption.EN : content.symbols.caption.AR}
+            </p>
+          </div>
         </div>
       </div>
 
