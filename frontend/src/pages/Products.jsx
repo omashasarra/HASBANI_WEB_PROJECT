@@ -67,7 +67,7 @@ const Products = () => {
             <div className="order-1 md:order-2 flex justify-center md:w-1/3 relative z-10 mb-4 md:mb-0">
               {prod.image ? (
                 <img
-                  src={`http://localhost:5000/uploads/${prod.image}`}
+                  src={`https://hasbaniwebproject-production.up.railway.app/uploads/${prod.image}`}
                   alt={prod.name}
                   className="max-w-full w-auto drop-shadow-2xl transition-transform duration-300 hover:scale-105"
                 />
