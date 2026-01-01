@@ -4,32 +4,17 @@ import cors from "cors";
 import dotenv from "dotenv";
 import fs from "fs";
 
-import productsRoutes from "./backend/routes/products.js";
-import adminRoutes from "./backend/routes/admin.js";
-import authRoutes from "./backend/routes/auth.js";
-
+import productsRoutes from "./routes/products.js";
+import adminRoutes from "./routes/admin.js";
+import authRoutes from "./routes/auth.js";
 dotenv.config();
 
 const app = express();
 
-// =====================
-// Middleware
-// =====================
-
-// CORS: allow your frontend
-app.use(
-  cors({
-    origin: "https://hasbani.netlify.app",
-    credentials: true,
-  })
-);
+app.use(cors());
 
 // JSON body parser
 app.use(express.json());
-
-// =====================
-// Routes
-// =====================
 
 app.use("/auth", authRoutes);
 app.use("/products", productsRoutes);
@@ -37,10 +22,6 @@ app.use("/admin", adminRoutes);
 
 // Serve uploaded files
 app.use("/uploads", express.static(path.resolve("uploads")));
-
-// =====================
-// Debug Routes
-// =====================
 
 // Simple backend alive check
 app.get("/debug", (req, res) => {
@@ -70,9 +51,6 @@ app.get("/debug/image/:filename", (req, res) => {
   res.sendFile(filePath);
 });
 
-// =====================
-// Start server
-// =====================
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

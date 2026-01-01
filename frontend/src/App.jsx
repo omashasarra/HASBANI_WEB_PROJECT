@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
-
+import React from "react";
 // Pages
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -16,7 +16,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./utils/ScrollToTop";
 import ProtectedRoute from "./components/ProtectedRoute";
 import SuperadminRoute from "./components/SuperadminRoute";
-import NotFound from "./pages/NotFound"; 
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (

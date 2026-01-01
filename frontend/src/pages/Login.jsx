@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import React from "react";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,13 +11,10 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "https://hasbaniwebproject-production.up.railway.app/auth/login",
-        {
-          email: email.trim().toLowerCase(),
-          password: password.trim(),
-        }
-      );
+      const res = await axios.post("http://localhost:5000/auth/login", {
+        email: email.trim().toLowerCase(),
+        password: password.trim(),
+      });
 
       console.log("Server response:", res.data); // Already there
       console.log("Submitting email:", email);

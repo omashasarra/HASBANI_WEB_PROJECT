@@ -1,5 +1,4 @@
-// Home.jsx
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -12,6 +11,7 @@ import feature2 from "../assets/homePage/Crown.svg";
 import feature3 from "../assets/homePage/World.svg";
 import farmer from "../assets/homePage/farmer.png";
 
+// Feature Card Component
 const FeatureCard = ({ image, title, description, isArabic }) => (
   <div
     className={`flex flex-col items-center bg-white rounded-xl p-6 text-center shadow-md h-full transform transition-transform duration-300 md:hover:scale-105`}
@@ -31,6 +31,7 @@ const FeatureCard = ({ image, title, description, isArabic }) => (
   </div>
 );
 
+// Product Card Component
 const ProductCard = ({ product, isOpen, toggleOpen, isArabic, smallDesc }) => (
   <div
     className="relative rounded-lg overflow-hidden shadow-md cursor-pointer group"
@@ -49,13 +50,13 @@ const ProductCard = ({ product, isOpen, toggleOpen, isArabic, smallDesc }) => (
         isOpen ? "opacity-100" : "opacity-0 md:group-hover:opacity-100"
       }`}
     >
-      <p
+      <div
         className={`text-white font-semibold ${
           smallDesc ? "text-sm sm:text-[13px]" : "text-base sm:text-[15px]"
         }`}
       >
         {product.description}
-      </p>
+      </div>
     </div>
 
     <div className="p-4">
@@ -75,10 +76,14 @@ const ProductCard = ({ product, isOpen, toggleOpen, isArabic, smallDesc }) => (
   </div>
 );
 
+// Home Component
 export default function Home() {
   const { lang } = useLanguage();
   const isArabic = lang === "AR";
   const [openProduct, setOpenProduct] = useState(null);
+
+  const toggleProduct = (id) =>
+    setOpenProduct((prev) => (prev === id ? null : id));
 
   const products = isArabic
     ? [
@@ -100,7 +105,7 @@ export default function Home() {
               </p>
               <p>
                 الأحجام المتوفّرة: 250 مل، 500 مل، 1 لتر، 5 لتر، 16 لتر، أو حسب
-                الطلب
+                الطلب.
               </p>
             </>
           ),
@@ -133,13 +138,11 @@ export default function Home() {
           title: "زيتون",
           image: product3,
           description: (
-            <>
-              <p>
-                زيتون HASBANI غني بمضادات الأكسدة والدهون الصحية، يدعم صحة القلب
-                ويقلل الالتهابات. مثالي كوجبة خفيفة، في السلطات، أو ضمن أطباق
-                البحر الأبيض المتوسط.
-              </p>
-            </>
+            <p>
+              زيتون HASBANI غني بمضادات الأكسدة والدهون الصحية، يدعم صحة القلب
+              ويقلل الالتهابات. مثالي كوجبة خفيفة، في السلطات، أو ضمن أطباق
+              البحر الأبيض المتوسط.
+            </p>
           ),
         },
       ]
@@ -195,13 +198,11 @@ export default function Home() {
           title: "Olives",
           image: product3,
           description: (
-            <>
-              <p>
-                Rich in antioxidants and healthy fats, our olives support heart
-                health and reduce inflammation. Perfect as a snack, in salads,
-                or as part of Mediterranean dishes.
-              </p>
-            </>
+            <p>
+              Rich in antioxidants and healthy fats, our olives support heart
+              health and reduce inflammation. Perfect as a snack, in salads, or
+              as part of Mediterranean dishes.
+            </p>
           ),
         },
       ];
@@ -246,9 +247,6 @@ export default function Home() {
             "Over 40 years of trusted quality and authentic flavor from Lebanon.",
         },
       ];
-
-  const toggleProduct = (id) =>
-    setOpenProduct((prev) => (prev === id ? null : id));
 
   return (
     <div

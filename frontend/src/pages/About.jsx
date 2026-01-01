@@ -5,6 +5,7 @@ import olives from "../assets/AboutUs/gloves.jpg";
 import { LuHeartHandshake, LuShieldCheck } from "react-icons/lu";
 import { FaHandsHelping, FaGlobeAmericas } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
+import React from "react";
 
 const About = () => {
   const splitWords = (text) => {
