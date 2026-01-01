@@ -12,8 +12,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export const UPLOADS_DIR = path.join(__dirname, "../uploads");
-if (!fs.existsSync(UPLOADS_DIR)) {
-  fs.mkdirSync(UPLOADS_DIR);
+try {
+  if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR);
+} catch (err) {
+  console.warn("Uploads folder not created:", err);
 }
 
 const storage = multer.diskStorage({
