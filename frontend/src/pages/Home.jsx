@@ -5,7 +5,7 @@ import { useLanguage } from "../context/LanguageContext";
 
 import heroImage from "../assets/homePage/hero.jpg";
 import product1 from "../assets/products/EXTRAVIRGIN.png";
-import product2 from "../assets/products/honey.png";
+import product2 from "../assets/products/Honey.png";
 import product3 from "../assets/products/OLIVES.png";
 import feature1 from "../assets/homePage/Check.svg";
 import feature2 from "../assets/homePage/Crown.svg";
